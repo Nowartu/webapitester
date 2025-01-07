@@ -3,6 +3,9 @@ import {ref} from 'vue'
 
 const nfcrecords = ref(['aaa'])
 
+const n = ref(navigator)
+alert(navigator)
+
 function scan() {
   const ndef = new NDEFReader();
   ndef
@@ -14,6 +17,7 @@ function scan() {
         );
       };
       ndef.onreading = (event) => {
+        console.log(event)
         for (const record of event.message.records){
           alert(record.recordType + record.mediaType + record.id)
         }
@@ -30,6 +34,7 @@ function scan() {
 <template>
  <v-btn color="secondary" @click="scan">Scan</v-btn><br>
   TAGs: <template v-for="row in nfcrecords">{{row}} {{row.data}}</template>
+  {{JSON.stringify(n, null, 2)}}
 </template>
 
 <style scoped lang="sass">
