@@ -1,4 +1,7 @@
 <script setup>
+import {ref} from 'vue'
+
+const nfctag = ref('')
 
 function scan() {
   const ndef = new NDEFReader();
@@ -11,6 +14,7 @@ function scan() {
         );
       };
       ndef.onreading = (event) => {
+        nfctag.value = event;
         alert(`NDEF message read. ${event}`);
       };
     })
@@ -22,7 +26,8 @@ function scan() {
 </script>
 
 <template>
- <v-btn color="secondary" @click="scan">Scan</v-btn>
+ <v-btn color="secondary" @click="scan">Scan</v-btn><br>
+  TAG: {{nfctag}}
 </template>
 
 <style scoped lang="sass">
