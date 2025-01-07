@@ -33,7 +33,7 @@ function scan() {
 
 <template>
  <v-btn color="secondary" @click="scan">Scan</v-btn><br>
-  TAGs: <template v-for="row in nfcrecords">{{row}} {{row.data}}</template>
+  TAGss: <template v-for="row in nfcrecords">{{row}} {{row.data}}</template>
   {{JSON.stringify(n, null, 2)}}
 </template>
 
