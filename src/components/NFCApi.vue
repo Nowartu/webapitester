@@ -3,8 +3,6 @@ import {ref} from 'vue'
 
 const nfcrecords = ref(['aaa'])
 
-const n = ref(navigator)
-alert(navigator)
 
 function scan() {
   const ndef = new NDEFReader();
@@ -34,7 +32,6 @@ function scan() {
 <template>
  <v-btn color="secondary" @click="scan">Scan</v-btn><br>
   TAGss: <template v-for="row in nfcrecords">{{row}} {{row.data}}</template>
-  {{JSON.stringify(n, null, 2)}}
 </template>
 
 <style scoped lang="sass">
