@@ -6,6 +6,7 @@ import BatteryApi from "@/components/BatteryApi.vue";
 import NetworkApi from "@/components/NetworkApi.vue";
 import VibrationApi from "@/components/VibrationApi.vue";
 import ScreenOrientation from "@/components/ScreenOrientation.vue";
+import SensorApi from "@/components/SensorApi.vue";
 
 const comp = shallowRef(HomePage)
 </script>
@@ -22,7 +23,7 @@ const comp = shallowRef(HomePage)
         <v-list-item prepend-icon="mdi-battery" title="Battery" @click="comp=BatteryApi"></v-list-item>
         <v-list-item prepend-icon="mdi-wifi" title="Network" @click="comp=NetworkApi"></v-list-item>
         <v-list-item prepend-icon="mdi-screen-rotation" title="Screen" @click="comp=ScreenOrientation"></v-list-item>
-        <v-list-item prepend-icon="mdi-leak" title="Sensor" @click="comp=GeolocationComponent"></v-list-item>
+        <v-list-item prepend-icon="mdi-leak" title="Sensor" @click="comp=SensorApi"></v-list-item>
         <v-list-item prepend-icon="mdi-vibrate" title="Vibration" @click="comp=VibrationApi"></v-list-item>
         <v-list-item prepend-icon="mdi-nfc" title="NFC" @click="comp=GeolocationComponent"></v-list-item>
       </v-list>
