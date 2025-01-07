@@ -1,7 +1,7 @@
 <script setup>
 import {ref} from 'vue'
 
-const nfctag = ref('')
+const nfcrecords = ref([])
 
 function scan() {
   const ndef = new NDEFReader();
@@ -14,7 +14,7 @@ function scan() {
         );
       };
       ndef.onreading = (event) => {
-        nfctag.value = event;
+        nfctag.value = event.message.records;
       };
     })
     .catch((error) => {
@@ -26,7 +26,7 @@ function scan() {
 
 <template>
  <v-btn color="secondary" @click="scan">Scan</v-btn><br>
-  TAG: {{nfctag.message}}
+  TAGs: <template v-for="row in nfcrecords">{{row}} {{row.mediaType}} {{row.data}}</template>
 </template>
 
 <style scoped lang="sass">
