@@ -1,7 +1,7 @@
 <script setup>
 
 function vibrate() {
-  navigator.vibrate(50)
+  navigator.vibrate(500)
 }
 
 </script>
