@@ -1,7 +1,7 @@
 <script setup>
 import {ref} from 'vue'
 
-const nfcrecords = ref(['aaa'])
+const nfcserialnumber = ref('')
 
 
 function scan() {
@@ -15,11 +15,7 @@ function scan() {
         );
       };
       ndef.onreading = (event) => {
-        console.log(event)
-        for (const record of event.message.records){
-          alert(record.recordType + record.mediaType + record.id)
-        }
-        nfcrecords.value = event.message.records;
+        nfcserialnumber.value = event.serialNumber;
       };
     })
     .catch((error) => {
@@ -31,7 +27,7 @@ function scan() {
 
 <template>
  <v-btn color="secondary" @click="scan">Scan</v-btn><br>
-  TAGss: <template v-for="row in nfcrecords">{{row}} {{row.data}}</template>
+  Serial Number: {{nfcserialnumber}}<br>
 </template>
 
 <style scoped lang="sass">
