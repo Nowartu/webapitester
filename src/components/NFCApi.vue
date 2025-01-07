@@ -14,6 +14,7 @@ function scan() {
         );
       };
       ndef.onreading = (event) => {
+        alert(event.message.records)
         nfctag.value = event.message.records;
       };
     })
@@ -26,7 +27,7 @@ function scan() {
 
 <template>
  <v-btn color="secondary" @click="scan">Scan</v-btn><br>
-  TAGs: <template v-for="row in nfcrecords">{{row}} {{row.mediaType}} {{row.data}}</template>
+  TAG: <template v-for="row in nfcrecords">{{row}} {{row.mediaType}} {{row.data}}</template>
 </template>
 
 <style scoped lang="sass">
