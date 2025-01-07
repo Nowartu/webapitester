@@ -15,7 +15,6 @@ function scan() {
       };
       ndef.onreading = (event) => {
         nfctag.value = event;
-        alert(`NDEF message read. ${event}`);
       };
     })
     .catch((error) => {
@@ -27,7 +26,7 @@ function scan() {
 
 <template>
  <v-btn color="secondary" @click="scan">Scan</v-btn><br>
-  TAG: {{nfctag}}
+  TAG: {{nfctag.message}}
 </template>
 
 <style scoped lang="sass">
